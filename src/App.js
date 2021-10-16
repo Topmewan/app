@@ -1,8 +1,12 @@
 
+import cn from 'classnames';
+import styles from './App.module.css';
+console.log(styles);
 
 function App() {
   return (
-    <div className="App">
+    <div className={cn(styles.header,styles.text)}>
+      gsfsgsg
 
 
     </div>
