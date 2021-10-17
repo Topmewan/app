@@ -1,5 +1,6 @@
-import PeopleList from "../PeopleList/PeopleList";
 import {useState} from "react";
+//Components
+import {ErrorMessage} from "../ErrorMessage/ErrorMessage";
 
 
 export const withErrorApi = (View) => {
@@ -9,13 +10,13 @@ export const withErrorApi = (View) => {
 
         return (
             <>
-                {errorApi ?
-                    <h1>Error</h1> :
-                    <div>
-                        {<View setErrorApi={setErrorApi}
+                {errorApi
+                    ? <ErrorMessage/>
+                    :(
+                        <View setErrorApi={setErrorApi}
                         {...props}
-                        />}
-                    </div>
+                        />
+                    )
                 }
             </>
         );

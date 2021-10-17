@@ -1,4 +1,7 @@
+import PropTypes from 'prop-types';
+
 import styles from './PeopleList.module.css';
+
 
 const PeopleList = ({character}) => {
     return (
@@ -13,6 +16,10 @@ const PeopleList = ({character}) => {
             </ul>
     );
 
+}
+
+PeopleList.propTypes = {
+    character: PropTypes.array
 }
 
 export default PeopleList;

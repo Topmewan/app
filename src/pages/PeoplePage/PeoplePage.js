@@ -1,11 +1,23 @@
-import styles from './PeoplePage.module.css';
-import {getApi} from "../../utils/getApi";
 import {useEffect, useState,} from "react";
-import {API_PEOPLE} from '../../constants/api';
-//Components
-import PeopleList from "../../components/PeopleList/PeopleList";
+import PropTypes from 'prop-types';
 //HOC
 import {withErrorApi} from "../../components/HOC/withErrorApi";
+//Components
+import PeopleList from "../../components/PeopleList/PeopleList";
+//Hooks
+import {getApi} from "../../utils/getApi";
+//Utils
+import {getApi} from "../../utils/getApi";
+//Styles
+import styles from './PeoplePage.module.css';
+
+
+
+
+
+import {API_PEOPLE} from '../../constants/api';
+
+
 
 const PeoplePage = ({setErrorApi}) => {
     // const [loading,setLoading] = useState(true);
@@ -46,4 +58,9 @@ const PeoplePage = ({setErrorApi}) => {
     );
 }
 
+PeoplePage.propTypes = {
+    setErrorApi: PropTypes.func
+}
+
 export default withErrorApi(PeoplePage);
+
