@@ -1,5 +1,3 @@
-const API_ROOT = 'https://www.breakingbadapi.com/api/';
-const API_SECOND = 'characters';
 
 export const getApi = async (url) => {
     try {
@@ -17,7 +15,7 @@ export const getApi = async (url) => {
 
 
 
-(async () => {
-    const body = await getApi(API_ROOT + API_SECOND);
-    console.log(body);
-})();
+// (async () => {
+//     const body = await getApi(API_ROOT + API_SECOND);
+//     console.log(body);
+// })();
