@@ -7,22 +7,28 @@ import PeopleList from "../../components/PeopleList/PeopleList";
 const PeoplePage = () => {
     // const [loading,setLoading] = useState(true);
     const [character,setCharacter] = useState([]);
+    const [errorApi,setErrorApi] = useState(false);
+
 
     const getResourse = async (url) => {
 
         const result = await getApi(url);
-        console.log(result);
 
-        const peopleList = result.map(({name,img,char_id}) => {
-            return {
-                char_id,
-                name,
-                img
-            }
-        })
-        console.log(peopleList);
-        setCharacter(peopleList);
-        // setLoading(false);
+        if(result){
+            const peopleList = result.map(({name,img,char_id}) => {
+                return {
+                    char_id,
+                    name,
+                    img
+                }
+            })
+            console.log(peopleList);
+            setCharacter(peopleList);
+            setErrorApi(false);
+        } else {
+            setErrorApi(true);
+
+        }
 
     }
 
@@ -33,7 +39,14 @@ const PeoplePage = () => {
 
     return (
         <>
-            {character && <PeopleList character={character}/>}
+            {errorApi ? <h1>Error</h1> :
+                <div>
+                    {character && <PeopleList character={character}/>}
+                </div>
+
+            }
+
+
         </>
     );
 }
