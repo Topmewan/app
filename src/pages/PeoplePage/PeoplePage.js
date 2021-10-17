@@ -4,10 +4,11 @@ import PropTypes from 'prop-types';
 import {withErrorApi} from "../../components/HOC/withErrorApi";
 //Components
 import PeopleList from "../../components/PeopleList/PeopleList";
-//Hooks
-import {getApi} from "../../utils/getApi";
+
 //Utils
 import {getApi} from "../../utils/getApi";
+//Constants
+import {API_PEOPLE} from '../../constants/api';
 //Styles
 import styles from './PeoplePage.module.css';
 
@@ -15,7 +16,7 @@ import styles from './PeoplePage.module.css';
 
 
 
-import {API_PEOPLE} from '../../constants/api';
+
 
 
 
