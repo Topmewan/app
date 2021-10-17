@@ -2,12 +2,14 @@ import styles from './PeoplePage.module.css';
 import {getApi} from "../../utils/getApi";
 import {useEffect, useState,} from "react";
 import {API_PEOPLE} from '../../constants/api';
+//Components
 import PeopleList from "../../components/PeopleList/PeopleList";
+//HOC
+import {withErrorApi} from "../../components/HOC/withErrorApi";
 
-const PeoplePage = () => {
+const PeoplePage = ({setErrorApi}) => {
     // const [loading,setLoading] = useState(true);
     const [character,setCharacter] = useState([]);
-    const [errorApi,setErrorApi] = useState(false);
 
 
     const getResourse = async (url) => {
@@ -39,16 +41,9 @@ const PeoplePage = () => {
 
     return (
         <>
-            {errorApi ? <h1>Error</h1> :
-                <div>
-                    {character && <PeopleList character={character}/>}
-                </div>
-
-            }
-
-
+            {character && <PeopleList character={character}/>}
         </>
     );
 }
 
-export default PeoplePage;
+export default withErrorApi(PeoplePage);
