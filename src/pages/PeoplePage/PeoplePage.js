@@ -2,6 +2,7 @@ import styles from './PeoplePage.module.css';
 import {getApi} from "../../utils/getApi";
 import {useEffect, useState,} from "react";
 import {API_PEOPLE} from '../../constants/api';
+import PeopleList from "../../components/PeopleList/PeopleList";
 
 const PeoplePage = () => {
     // const [loading,setLoading] = useState(true);
@@ -9,14 +10,14 @@ const PeoplePage = () => {
 
     const getResourse = async (url) => {
 
-
         const result = await getApi(url);
         console.log(result);
 
-        const peopleList = result.map(({name,nickname}) => {
+        const peopleList = result.map(({name,img,char_id}) => {
             return {
+                char_id,
                 name,
-                nickname
+                img
             }
         })
         console.log(peopleList);
@@ -32,15 +33,7 @@ const PeoplePage = () => {
 
     return (
         <>
-            { character &&
-                <ul>
-                    {character.map(({name}) => <li key={name}>{name}</li>)}
-                </ul>
-
-            }
-
-
-
+            {character && <PeopleList character={character}/>}
         </>
     );
 }
