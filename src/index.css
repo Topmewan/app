@@ -1,0 +1,21 @@
+:root {
+    /* Color */
+    --color-dark-gray:#10100e;
+    --color-white:#ffff;
+    --color-black:#000;
+
+    /* Border */
+    --border-radius-small:3px;
+
+    --spacing-medium:20px;
+
+
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #10100e;
+    font-family: sans-serif;
+}
