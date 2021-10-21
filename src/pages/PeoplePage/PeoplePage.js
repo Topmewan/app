@@ -22,6 +22,8 @@ const PeoplePage = ({setErrorApi}) => {
     const getResourse = async (url) => {
 
         const result = await getApi(url);
+        console.log(result);
+
 
         if(result){
             const peopleList = result.map(({name,img,char_id}) => {
@@ -43,7 +45,6 @@ const PeoplePage = ({setErrorApi}) => {
 
     useEffect(()=> {
         getResourse(API_PEOPLE);
-
     },[]);
 
     return (
