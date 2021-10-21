@@ -1,6 +1,6 @@
 import {useState} from "react";
 //Components
-import {ErrorMessage} from "../ErrorMessage/ErrorMessage";
+import {ErrorMessage} from "../components/ErrorMessage/ErrorMessage";
 
 
 export const withErrorApi = (View) => {

@@ -1,7 +1,7 @@
 import {useEffect, useState,} from "react";
 import PropTypes from 'prop-types';
 //HOC
-import {withErrorApi} from "../../components/HOC/withErrorApi";
+import {withErrorApi} from "../../HOC/withErrorApi";
 //Components
 import PeopleList from "../../components/PeopleList/PeopleList";
 
@@ -11,12 +11,6 @@ import {getApi} from "../../utils/getApi";
 import {API_PEOPLE} from '../../constants/api';
 //Styles
 import styles from './PeoplePage.module.css';
-
-
-
-
-
-
 
 
 
