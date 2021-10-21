@@ -1,0 +1,17 @@
+.heading{
+    font-weight: var(--font-bold);
+    font-size: 200px;
+    text-align: center;
+    color: var(--color-white);
+    text-shadow: var(--text-shadow-blue);
+}
+
+.text {
+    margin-top: var(--spacing-large);
+    font-size: var(--font-size-subheader);
+    color: var(--color-white);
+    text-align: center;
+    text-shadow: var(--text-shadow-blue);
+
+}
+

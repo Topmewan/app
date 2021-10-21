@@ -13,6 +13,10 @@ const Header = () => {
                     <NavLink to='/people' exact>People</NavLink>
 
                 </li>
+                <li>
+                    <NavLink to='/not-found' exact>Not Found</NavLink>
+
+                </li>
             </ul>
 
 

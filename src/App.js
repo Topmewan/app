@@ -16,26 +16,29 @@ function App() {
 
 
   return (
-    <div className={cn(styles.header)}>
-        <BrowserRouter>
+        <>
+            <BrowserRouter>
 
-            <Header/>
+                <div className={styles.wrapper}>
 
-            <Switch>
-            {routesConfig.map ((route) => (
-                <Route
-                    key={route.id}
-                    path={route.path}
-                    exact={route.exact}
-                    component={route.component}
-                />
-            )
-            )}
-            </Switch>
+                    <Header/>
 
-        </BrowserRouter>
+                    <Switch>
+                        {routesConfig.map ((route) => (
+                                <Route
+                                    key={route.id}
+                                    path={route.path}
+                                    exact={route.exact}
+                                    component={route.component}
+                                />
+                            )
+                        )}
+                    </Switch>
+                </div>
 
-    </div>
+            </BrowserRouter>
+        </>
+
   );
 }
 
