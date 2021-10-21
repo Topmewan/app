@@ -2,18 +2,27 @@
     /* Color */
     --color-dark-gray:#10100e;
     --color-white:#ffff;
+    --color-blue:#6a83fb;
+
     --color-black:#000;
 
     /* Border */
     --border-radius-small:3px;
 
     --spacing-medium:20px;
+    --spacing-large:30px;
 
     --font-size-header:26px;
 
     --theme-default-header:#cccc46;
 
     --transition:0.4s;
+
+    --font-bold:600;
+
+    --font-family-main: sans-serif;
+
+    --text-shadow-yellow: 0 0 2px var(--color-white), 0 0 40px var(--color-blue);
 
 
 }
