@@ -7,6 +7,9 @@ import PeopleList from "../../components/PeopleList/PeopleList";
 
 //Utils
 import {getApi} from "../../utils/getApi";
+
+import {getPeopleId,getPeopleImage} from "../../components/services/getPeopleData";
+
 //Constants
 import {API_PEOPLE} from '../../constants/api';
 //Styles
@@ -26,9 +29,11 @@ const PeoplePage = ({setErrorApi}) => {
 
 
         if(result){
-            const peopleList = result.map(({name,img,char_id}) => {
+            const peopleList = result.results.map(({name,url}) => {
+                const id = getPeopleId(url);
+                const img = getPeopleImage(id);
                 return {
-                    char_id,
+                    id,
                     name,
                     img
                 }
