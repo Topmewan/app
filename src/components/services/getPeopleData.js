@@ -1,5 +1,13 @@
 import {API_PEOPLE,API_SECOND,HTTP,API_ROOT,HTTPS,
-    GUIDE_IMG_EXTENSION,URL_IMG_PERSON} from "../../constants/api";
+    GUIDE_IMG_EXTENSION,URL_IMG_PERSON,API_PAGE} from "../../constants/api";
+
+export const getPeoplePageId = url => {
+    const position = url.lastIndexOf(API_PAGE);
+    const id = url.slice(position + API_PAGE.length,url.length);
+
+    return +id;
+
+}
 
 
 const checkProtocol = url => {

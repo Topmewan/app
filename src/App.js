@@ -1,13 +1,10 @@
 //Componetns
 import cn from 'classnames';
 import styles from './App.module.css';
-import {getApi} from "./utils/getApi";
 import {BrowserRouter, NavLink, Route,Switch} from "react-router-dom";
 import routesConfig from "./components/routes/routesConfig";
 import Header from "./components/Header/Header";
 
-// console.log(styles);
-// getApi();
 
 
 function App() {

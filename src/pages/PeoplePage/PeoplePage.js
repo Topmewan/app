@@ -5,11 +5,12 @@ import PropTypes from 'prop-types';
 import {withErrorApi} from "../../HOC/withErrorApi";
 //Components
 import PeopleList from "../../components/PeopleList/PeopleList";
+import Navigation from "../../components/Navigation/Navigation";
 
 //Utils
 import {getApi} from "../../utils/getApi";
 
-import {getPeopleId,getPeopleImage} from "../../components/services/getPeopleData";
+import {getPeopleId,getPeopleImage,getPeoplePageId} from "../../components/services/getPeopleData";
 
 //Constants
 import {API_PEOPLE} from '../../constants/api';
@@ -20,17 +21,22 @@ import styles from './PeoplePage.module.css';
 
 const PeoplePage = ({setErrorApi}) => {
     // const [loading,setLoading] = useState(true);
-    const [character,setCharacter] = useState([]);
+    const [character,setCharacter] = useState(null);
+    const [prevPage,setPrevPage] = useState(null);
+    const [nextPage,setNextPage] = useState(null);
+    const [currentPage,setCurrentPage] = useState(1);
+
 
     const query = useQueryParams();
     const queryPage = query.get('page');
-    console.log(queryPage)
+
+    // console.log(queryPage,prevPage,nextPage);
+
 
 
     const getResourse = async (url) => {
 
         const result = await getApi(url);
-        console.log(result);
 
 
         if(result){
@@ -43,8 +49,10 @@ const PeoplePage = ({setErrorApi}) => {
                     img
                 }
             })
-            console.log(peopleList);
             setCharacter(peopleList);
+            setPrevPage(result.previous);
+            setNextPage(result.next);
+            setCurrentPage(getPeoplePageId(url));
             setErrorApi(false);
         } else {
             setErrorApi(true);
@@ -54,11 +62,17 @@ const PeoplePage = ({setErrorApi}) => {
     }
 
     useEffect(()=> {
-        getResourse(API_PEOPLE);
-    },[]);
+        getResourse(API_PEOPLE + queryPage);
+    },[queryPage]);
 
     return (
         <>
+            <Navigation
+                getResource={getResourse}
+                prevPage={prevPage}
+                nextPage={nextPage}
+                currentPage={currentPage}
+            />
             {character && <PeopleList character={character}/>}
         </>
     );

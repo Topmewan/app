@@ -4,7 +4,9 @@ export const HTTP = 'http://';
 
 export const API_ROOT = 'swapi.dev/api/';
 export const API_SECOND= 'people';
-export const API_PEOPLE = HTTPS + API_ROOT + API_SECOND;
+export const API_PAGE= '/?page=';
+
+export const API_PEOPLE = HTTPS + API_ROOT + API_SECOND + API_PAGE;
 
 
 const GUIDE_ROOT_IMG = 'https://starwars-visualguide.com/assets/img/';
