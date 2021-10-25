@@ -1,6 +1,4 @@
 //Componetns
-import PeoplePage from './pages/PeoplePage/PeoplePage';
-import HomePage from "./pages/HomePage/HomePage";
 import cn from 'classnames';
 import styles from './App.module.css';
 import {getApi} from "./utils/getApi";

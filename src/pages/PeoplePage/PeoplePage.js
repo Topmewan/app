@@ -1,4 +1,5 @@
 import {useEffect, useState,} from "react";
+import {useQueryParams} from "../../components/hooks/useQueryParams";
 import PropTypes from 'prop-types';
 //HOC
 import {withErrorApi} from "../../HOC/withErrorApi";
@@ -20,6 +21,10 @@ import styles from './PeoplePage.module.css';
 const PeoplePage = ({setErrorApi}) => {
     // const [loading,setLoading] = useState(true);
     const [character,setCharacter] = useState([]);
+
+    const query = useQueryParams();
+    const queryPage = query.get('page');
+    console.log(queryPage)
 
 
     const getResourse = async (url) => {
