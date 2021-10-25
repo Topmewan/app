@@ -13,7 +13,7 @@ const Navigation = ({prevPage,getResource,nextPage,currentPage}) => {
     }
     return (
         <div>
-            <Link to={`/people/?page=${currentPage-1}`}>
+            <Link to={`/people/?page=${currentPage-1}`} className={styles.link}>
                 <button
                     onClick={handleChangePrev}
                     disabled={!prevPage}
@@ -21,7 +21,7 @@ const Navigation = ({prevPage,getResource,nextPage,currentPage}) => {
                 >Previous</button>
             </Link>
 
-            <Link to={`/people/?page=${currentPage+1}`}>
+            <Link to={`/people/?page=${currentPage+1}`} className={styles.link}>
                 <button
                     onClick={handleChangeNext}
                     disabled={!nextPage}
