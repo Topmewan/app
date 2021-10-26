@@ -1,5 +1,9 @@
 
-.link {
-    margin: 20px;
+.buttons {
+    margin: var(--spacing-small);
 }
 
+.container {
+    display: flex;
+    justify-content: center;
+}
