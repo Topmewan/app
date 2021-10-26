@@ -28,7 +28,6 @@ const Navigation = ({prevPage,getResource,nextPage,currentPage}) => {
                     onClick={handleChangeNext}
                     disabled={!nextPage}
                     text='Next'
-                    classes={styles.test}
                 />
 
             </Link>
