@@ -21,7 +21,6 @@
 }
 
 .item__title{
-    text-decoration: underline;
     text-shadow: var(--text-shadow-blue);
 
 }
@@ -34,4 +33,3 @@
     }
 }
 
-test
