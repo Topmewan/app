@@ -5,8 +5,8 @@ import CharInfo from "../CharInfo/CharInfo";
 
 const CharPhoto = ({charPhoto,charName}) => {
     return (
-        <div>
-            <img src={charPhoto} alt={charName}/>
+        <div className={styles.container}>
+            <img className={styles.photo} src={charPhoto} alt={charName}/>
         </div>
     );
 };

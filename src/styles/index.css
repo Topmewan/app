@@ -5,16 +5,23 @@
     --color-blue:#6a83fb;
     --color-green:#496F5D;
     --color-yellow:#cccc46;
+    --color-viol:violet;
 
 
     --color-black:#000;
 
     /* Border */
     --border-radius-small:3px;
+    --border-radius-medium:5px;
+
 
     --spacing-medium:20px;
     --spacing-large:30px;
     --spacing-small:10px;
+    --spacing-verysmall:5px;
+
+    --margin-list:7px;
+
 
     --font-size-header:26px;
     --font-size-subheader: 18px;

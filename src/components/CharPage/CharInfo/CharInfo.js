@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 
 const CharInfo = ({charInfo}) => {
     return (
-        <div>
-            <ul>
+        <div className={styles.wrapper}>
+            <ul className={styles.list__container}>
                 {charInfo.map(({title,data})=> (
                     data && (
-                        <li key={title}>
-                            <span>{title}:{data}</span>
+                        <li className={styles.list__item} key={title}>
+                            <span className={styles.item__title}>{title}</span>: {data}
                         </li>
                     )
                 ))}
