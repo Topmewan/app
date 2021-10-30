@@ -8,6 +8,7 @@ import {getPeopleImage} from "../../components/services/getPeopleData";
 
 import CharInfo from "../../components/CharPage/CharInfo/CharInfo";
 import CharPhoto from "../../components/CharPage/CharPhoto/CharPhoto";
+import CharLinkBack from "../../components/CharPage/CharLinkBack/CharLinkBack";
 
 const CharPage = ({match, setErrorApi}) => {
 
@@ -44,23 +45,29 @@ const CharPage = ({match, setErrorApi}) => {
     },[]);
 
     return (
-        <div className={styles.wrapper}>
+        <>
+            <CharLinkBack/>
 
-            <span className={styles.person__name}>{charName}</span>
+            <div className={styles.wrapper}>
 
-            <div className={styles.container}>
+                <span className={styles.person__name}>{charName}</span>
 
-                <CharPhoto
-                    charPhoto={charPhoto}
-                    charName={charName}
-                />
+                <div className={styles.container}>
 
-                { charInfo && <CharInfo charInfo={charInfo}/> }
+                    <CharPhoto
+                        charPhoto={charPhoto}
+                        charName={charName}
+                    />
+
+                    { charInfo && <CharInfo charInfo={charInfo}/> }
+
+                </div>
+
 
             </div>
 
 
-        </div>
+        </>
     );
 
 }
