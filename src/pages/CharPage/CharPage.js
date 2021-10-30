@@ -4,11 +4,16 @@ import PropTypes from "prop-types";
 import {useEffect, useState} from "react";
 import {API_CHAR} from "../../constants/api";
 import {withErrorApi} from "../../HOC/withErrorApi";
+import {getPeopleImage} from "../../components/services/getPeopleData";
+
+import CharInfo from "../../components/CharPage/CharInfo/CharInfo";
+import CharPhoto from "../../components/CharPage/CharPhoto/CharPhoto";
 
 const CharPage = ({match, setErrorApi}) => {
 
     const [charInfo,setCharInfo] = useState(null);
     const [charName,setCharName] = useState(null);
+    const[charPhoto,setCharPhoto] = useState(null)
 
 
     useEffect(()=>{
@@ -27,6 +32,7 @@ const CharPage = ({match, setErrorApi}) => {
                     {title:'Gender',data: res.gender},
                 ]);
                 setCharName(res.name);
+                setCharPhoto(getPeopleImage(id))
 
                 setErrorApi(false);
             } else {
@@ -38,20 +44,23 @@ const CharPage = ({match, setErrorApi}) => {
     },[]);
 
     return (
-        <>
-            <h1>{charName}</h1>
-            {charInfo && (
-                <ul>
-                    {charInfo.map(({title,data})=> (
-                        data && <li key={title}>
-                            <span>{title}:{data}</span>
-                        </li>
-                        ))}
-                </ul>
-            )}
+        <div className={styles.wrapper}>
+
+            <span className={styles.person__name}>{charName}</span>
+
+            <div className={styles.container}>
+
+                <CharPhoto
+                    charPhoto={charPhoto}
+                    charName={charName}
+                />
+
+                { charInfo && <CharInfo charInfo={charInfo}/> }
+
+            </div>
 
 
-        </>
+        </div>
     );
 
 }

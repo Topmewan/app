@@ -1,0 +1,14 @@
+.wrapper {
+
+}
+
+.person__name{
+    color: var(--color-white);
+    background-color: violet;
+
+}
+
+.container{
+    border-left:5px solid violet;
+
+}
