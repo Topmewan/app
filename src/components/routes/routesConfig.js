@@ -1,6 +1,7 @@
 import HomePage from "../../pages/HomePage/HomePage";
 import PeoplePage from "../../pages/PeoplePage/PeoplePage";
-import NotFound from "../NotFound/NotFound";
+import NotFound from "../../pages/NotFound/NotFound";
+import CharPage from "../../pages/CharPage/CharPage";
 
 const routesConfig  = [
     {
@@ -17,12 +18,18 @@ const routesConfig  = [
     },
     {
         id:3,
+        path:'/people/:id',
+        exact: true,
+        component: CharPage,
+    },
+    {
+        id:4,
         path:'/not-found',
         exact: true,
         component: NotFound,
     },
     {
-        id:4,
+        id:5,
         path:'*',
         exact: false,
         component: NotFound,

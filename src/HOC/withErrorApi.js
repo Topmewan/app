@@ -13,8 +13,9 @@ export const withErrorApi = (View) => {
                 {errorApi
                     ? <ErrorMessage/>
                     :(
-                        <View setErrorApi={setErrorApi}
-                        {...props}
+                        <View
+                            setErrorApi={setErrorApi}
+                            {...props}
                         />
                     )
                 }
