@@ -9,18 +9,21 @@ import {getPeopleImage} from "../../components/services/getPeopleData";
 import CharInfo from "../../components/CharPage/CharInfo/CharInfo";
 import CharPhoto from "../../components/CharPage/CharPhoto/CharPhoto";
 import CharLinkBack from "../../components/CharPage/CharLinkBack/CharLinkBack";
+import CharFilms from "../../components/CharPage/CharFilms/CharFilms";
 
 const CharPage = ({match, setErrorApi}) => {
 
     const [charInfo,setCharInfo] = useState(null);
     const [charName,setCharName] = useState(null);
     const[charPhoto,setCharPhoto] = useState(null)
+    const[charFilms,setCharFilms] = useState(null)
 
 
     useEffect(()=>{
         (async () => {
             const id = match.params.id;
             const res = await getApi(`${API_CHAR}/${id}/`);
+            console.log(res)
 
             if(res){
                 setCharInfo([
@@ -34,6 +37,8 @@ const CharPage = ({match, setErrorApi}) => {
                 ]);
                 setCharName(res.name);
                 setCharPhoto(getPeopleImage(id))
+
+                res.films.length &&  setCharFilms(res.films);
 
                 setErrorApi(false);
             } else {
@@ -60,6 +65,8 @@ const CharPage = ({match, setErrorApi}) => {
                     />
 
                     { charInfo && <CharInfo charInfo={charInfo}/> }
+
+                    {charFilms && <CharFilms charFilms={charFilms}/>}
 
                 </div>
 

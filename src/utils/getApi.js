@@ -1,3 +1,9 @@
+import {HTTPS,HTTP} from "../constants/api";
+
+export const changeHTTP = url => {
+    const result = url? url.replace(HTTP,HTTPS) : url;
+    return result;
+}
 
 export const getApi = async (url) => {
     try {
@@ -13,9 +19,15 @@ export const getApi = async (url) => {
     }
 }
 
-
-
 // (async () => {
 //     const body = await getApi(API_ROOT + API_SECOND);
 //     console.log(body);
 // })();
+
+export const makeFilmsRequest = async (url) =>{
+    const res = await Promise.all(url.map(res => {
+        return fetch(res).then(res => res.json())
+    }));
+
+    return res;
+}
