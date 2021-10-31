@@ -53,24 +53,25 @@ const CharPage = ({match, setErrorApi}) => {
         <>
             <CharLinkBack/>
 
-            <div className={styles.wrapper}>
+            <div className={styles.wraperr}>
+                <div className={styles.wrapper}>
 
-                <span className={styles.person__name}>{charName}</span>
+                    <span className={styles.person__name}>{charName}</span>
 
-                <div className={styles.container}>
+                    <div className={styles.container}>
 
-                    <CharPhoto
-                        charPhoto={charPhoto}
-                        charName={charName}
-                    />
+                        <CharPhoto
+                            charPhoto={charPhoto}
+                            charName={charName}
+                        />
 
-                    { charInfo && <CharInfo charInfo={charInfo}/> }
+                        { charInfo && <CharInfo charInfo={charInfo}/> }
 
-                    {charFilms && <CharFilms charFilms={charFilms}/>}
+                        {charFilms && <CharFilms charFilms={charFilms}/>}
+
+                    </div>
 
                 </div>
-
-
             </div>
 
 

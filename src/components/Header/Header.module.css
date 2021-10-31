@@ -24,13 +24,13 @@
     font-family: var(--font-family-main);
     text-decoration: none;
     font-weight: var(--font-bold);
-    text-shadow: var(--text-shadow-yellow);
+    text-shadow: var(--text-shadow-blue);
     transition: var(--transition);
 }
 
 .list__container :global(a.active) {
-    border: 2px solid var(--color-green);
-    color: var(--color-green);
+    border: 2px solid var(--color-red);
+    color: var(--color-red);
     text-shadow: none;
 }
 

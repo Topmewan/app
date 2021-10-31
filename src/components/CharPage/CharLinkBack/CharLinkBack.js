@@ -11,15 +11,17 @@ const CharLinkBack = () => {
 
     }
     return (
-        <a
-            href="#"
-            onClick={handleGoBack}
-            className={styles.link}
-        >
-            <img className={styles.link__img} src={icon} alt="Go Back"/>
+        <div className={styles.wrapper__link}>
+            <a
+                href="#"
+                onClick={handleGoBack}
+                className={styles.link}
+            >
+                <img className={styles.link__img} src={icon} alt="Go Back"/>
 
-            <span>Go Back</span>
-        </a>
+                <span>Go Back</span>
+            </a>
+        </div>
     );
 };
 

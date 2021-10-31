@@ -1,7 +1,12 @@
-.wrapper {
-    --color-name:var(--color-viol);
-    margin-top: 45px;
+.wraperr{
+    display: flex;
+    justify-content: center;
 
+}
+
+.wrapper {
+    --color-name:var(--color-red);
+    margin-top: 45px;
 }
 
 .person__name{

@@ -12,25 +12,24 @@ const CharFilms = ({charFilms}) => {
             const films = charFilms.map(url => changeHTTP(url));
             const response = await makeFilmsRequest(films);
 
-            console.log(response)
             setFilmsName(response);
         })();
 
     },[]);
 
     return (
-        <div>
+        <div className={styles.wrapper}>
 
-            <ul>
+            <ul className={styles.list__container}>
                 {filmsName
                     .sort((a,b) => {
                         return a.episode_id - b.episode_id;
                     })
                     .map(({title, episode_id}) =>
-                    <li key={episode_id}>
-                        <span>Episode {episode_id}</span>
-                        <span>: </span>
-                        <span>{title}</span>
+                    <li className={styles.list__item} key={episode_id}>
+                        <span className={styles.item__episode}>Episode {episode_id}</span>
+                        <span className={styles.item__colon}>: </span>
+                        <span className={styles.item__title}>{title}</span>
                     </li>
                     )}
             </ul>
