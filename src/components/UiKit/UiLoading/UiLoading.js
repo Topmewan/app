@@ -11,13 +11,14 @@ import {useEffect, useState} from "react";
 import cn from 'classnames';
 
 const UiLoading = ({ theme='white', isShadow=true, classes}) => {
+
     const [spinnerIcon, setSpinnerIcon] = useState(null);
 
     useEffect(()=> {
         switch (theme) {
             case "black": setSpinnerIcon(spinnerBlack);
             break;
-            case  "white": setSpinnerIcon(spinnerBlue);
+            case  "white": setSpinnerIcon(spinnerWhite);
             break;
             case  "blue": setSpinnerIcon(spinnerBlue);
             break;
@@ -40,8 +41,6 @@ UiLoading.propTypes = {
     theme:PropTypes.string,
     isShadow:PropTypes.bool,
     classes:PropTypes.string,
-
-
 }
 
 export default UiLoading;

@@ -57,7 +57,6 @@ const CharPage = ({match, setErrorApi}) => {
     return (
         <>
 
-            <UiLoading theme="blue"/>
 
             <CharLinkBack/>
 
