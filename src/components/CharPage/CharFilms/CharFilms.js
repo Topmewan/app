@@ -1,8 +1,12 @@
+import {useEffect, useState} from "react";
+import PropTypes from "prop-types";
+
+
+import {makeFilmsRequest,changeHTTP} from "../../../utils/getApi";
+
 
 import styles from './CharFilms.module.css';
-import PropTypes from "prop-types";
-import {makeFilmsRequest,changeHTTP} from "../../../utils/getApi";
-import {useEffect, useState} from "react";
+
 
 const CharFilms = ({charFilms}) => {
     const [filmsName,setFilmsName] = useState([]);

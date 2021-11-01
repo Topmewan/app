@@ -1,16 +1,21 @@
-import styles from './CharPage.module.css';
-import {getApi} from "../../utils/getApi";
 import PropTypes from "prop-types";
-import {useEffect, useState} from "react";
-import {API_CHAR} from "../../constants/api";
+import React,{useEffect, useState,Suspense} from "react";
+
 import {withErrorApi} from "../../HOC/withErrorApi";
-import {getPeopleImage} from "../../components/services/getPeopleData";
 
 import CharInfo from "../../components/CharPage/CharInfo/CharInfo";
 import CharPhoto from "../../components/CharPage/CharPhoto/CharPhoto";
 import CharLinkBack from "../../components/CharPage/CharLinkBack/CharLinkBack";
-import CharFilms from "../../components/CharPage/CharFilms/CharFilms";
+import UiLoading from "../../components/UiKit/UiLoading/UiLoading";
+// import CharFilms from "../../components/CharPage/CharFilms/CharFilms";
 
+import {getApi} from "../../utils/getApi";
+import {API_CHAR} from "../../constants/api";
+import {getPeopleImage} from "../../components/services/getPeopleData";
+
+import styles from './CharPage.module.css';
+
+const CharFilms = React.lazy(() => import("../../components/CharPage/CharFilms/CharFilms"))
 const CharPage = ({match, setErrorApi}) => {
 
     const [charInfo,setCharInfo] = useState(null);
@@ -51,6 +56,9 @@ const CharPage = ({match, setErrorApi}) => {
 
     return (
         <>
+
+            <UiLoading theme="blue"/>
+
             <CharLinkBack/>
 
             <div className={styles.wraperr}>
@@ -67,7 +75,11 @@ const CharPage = ({match, setErrorApi}) => {
 
                         { charInfo && <CharInfo charInfo={charInfo}/> }
 
-                        {charFilms && <CharFilms charFilms={charFilms}/>}
+                        {charFilms && (
+                            <Suspense fallback={<UiLoading/>}>
+                                <CharFilms charFilms={charFilms}/>
+                            </Suspense>
+                        )}
 
                     </div>
 
