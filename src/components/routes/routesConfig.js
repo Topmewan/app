@@ -2,6 +2,7 @@ import HomePage from "../../pages/HomePage/HomePage";
 import PeoplePage from "../../pages/PeoplePage/PeoplePage";
 import NotFound from "../../pages/NotFound/NotFound";
 import CharPage from "../../pages/CharPage/CharPage";
+import FavoritePage from "../../pages/FaforitePage/FavoritePage";
 
 const routesConfig  = [
     {
@@ -24,12 +25,18 @@ const routesConfig  = [
     },
     {
         id:4,
+        path:'/favorites',
+        exact: true,
+        component: FavoritePage,
+    },
+    {
+        id:5,
         path:'/not-found',
         exact: true,
         component: NotFound,
     },
     {
-        id:5,
+        id:6,
         path:'*',
         exact: false,
         component: NotFound,

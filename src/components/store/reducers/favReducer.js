@@ -1,7 +1,8 @@
 import {ADD_CHAR_TO_FAVORITE,REMOVE_CHAR_FROM_FAVORITE} from "../constans/actionTypes";
 
+const initialState = {};
 
-const favReducer = (state,action) => {
+const favReducer = (state=initialState,action) => {
     switch (action.type) {
         case ADD_CHAR_TO_FAVORITE:
             return {
@@ -15,10 +16,8 @@ const favReducer = (state,action) => {
             }
         default:
             return state;
-
-
     }
 }
 
-export default favReducerж
+export default favReducer;
 

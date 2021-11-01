@@ -22,13 +22,15 @@ const CharPage = ({match, setErrorApi}) => {
     const [charName,setCharName] = useState(null);
     const[charPhoto,setCharPhoto] = useState(null)
     const[charFilms,setCharFilms] = useState(null)
+    const[charId,setCharId] = useState(null)
 
 
     useEffect(()=>{
         (async () => {
             const id = match.params.id;
             const res = await getApi(`${API_CHAR}/${id}/`);
-            console.log(res)
+
+            setCharId(id);
 
             if(res){
                 setCharInfo([
@@ -70,6 +72,8 @@ const CharPage = ({match, setErrorApi}) => {
                         <CharPhoto
                             charPhoto={charPhoto}
                             charName={charName}
+                            charId={charId}
+
                         />
 
                         { charInfo && <CharInfo charInfo={charInfo}/> }
