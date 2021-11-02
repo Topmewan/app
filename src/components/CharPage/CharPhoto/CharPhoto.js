@@ -2,6 +2,8 @@ import {useDispatch} from "react-redux";
 import PropTypes from "prop-types";
 
 import CharInfo from "../CharInfo/CharInfo";
+import iconFavAdd from './img/fav-add.svg';
+import iconFavRemove from './img/fav-remove.svg';
 
 import {addCharToFavorite,removeCharFromFavorite} from "../../store/actions";
 
@@ -36,8 +38,15 @@ const CharPhoto = ({
         <>
             <div className={styles.container}>
                 <img className={styles.photo} src={charPhoto} alt={charName}/>
+                <img
+                    onClick={handleDispatchFavorites}
+                    src={charFavorite ? iconFavRemove : iconFavAdd}
+                    alt=""
+                    className={styles.favorite}
+                />
             </div>
-            <button onClick={handleDispatchFavorites}>olala</button>
+
+
 
         </>
 
