@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 import React,{useEffect, useState,Suspense} from "react";
+import {useSelector} from "react-redux";
+
 
 import {withErrorApi} from "../../HOC/withErrorApi";
 
@@ -7,7 +9,6 @@ import CharInfo from "../../components/CharPage/CharInfo/CharInfo";
 import CharPhoto from "../../components/CharPage/CharPhoto/CharPhoto";
 import CharLinkBack from "../../components/CharPage/CharLinkBack/CharLinkBack";
 import UiLoading from "../../components/UiKit/UiLoading/UiLoading";
-// import CharFilms from "../../components/CharPage/CharFilms/CharFilms";
 
 import {getApi} from "../../utils/getApi";
 import {API_CHAR} from "../../constants/api";
@@ -20,15 +21,21 @@ const CharPage = ({match, setErrorApi}) => {
 
     const [charInfo,setCharInfo] = useState(null);
     const [charName,setCharName] = useState(null);
-    const[charPhoto,setCharPhoto] = useState(null)
-    const[charFilms,setCharFilms] = useState(null)
-    const[charId,setCharId] = useState(null)
+    const[charPhoto,setCharPhoto] = useState(null);
+    const[charFilms,setCharFilms] = useState(null);
+    const[charId,setCharId] = useState(null);
+    const[charFavorite,setCharFavorite] = useState(false);
+
+    const storeData = useSelector(state => state.favReducer);
 
 
     useEffect(()=>{
         (async () => {
             const id = match.params.id;
             const res = await getApi(`${API_CHAR}/${id}/`);
+
+
+            storeData[id] ? setCharFavorite(true) : setCharFavorite(false);
 
             setCharId(id);
 
@@ -59,7 +66,6 @@ const CharPage = ({match, setErrorApi}) => {
     return (
         <>
 
-
             <CharLinkBack/>
 
             <div className={styles.wraperr}>
@@ -73,6 +79,8 @@ const CharPage = ({match, setErrorApi}) => {
                             charPhoto={charPhoto}
                             charName={charName}
                             charId={charId}
+                            charFavorite={charFavorite}
+                            setCharFavorite={setCharFavorite}
 
                         />
 
@@ -88,7 +96,6 @@ const CharPage = ({match, setErrorApi}) => {
 
                 </div>
             </div>
-
 
         </>
     );

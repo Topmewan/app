@@ -8,7 +8,7 @@ export const addCharToFavorite = (char) => ({
 
 
 
-export const removeCharFromFavorite = (char) => ({
+export const removeCharFromFavorite = (charId) => ({
     type: 'REMOVE_CHAR_FROM_FAVORITE',
-    payload:''
+    payload:charId
 });

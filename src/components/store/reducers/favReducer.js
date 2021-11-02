@@ -1,4 +1,5 @@
 import {ADD_CHAR_TO_FAVORITE,REMOVE_CHAR_FROM_FAVORITE} from "../constans/actionTypes";
+import {omit} from 'lodash';
 
 const initialState = {};
 
@@ -10,10 +11,7 @@ const favReducer = (state=initialState,action) => {
                 ...action.payload
             }
         case REMOVE_CHAR_FROM_FAVORITE:
-            return {
-                ...state,
-                ...action.payload
-            }
+            return omit(state, [action.payload])
         default:
             return state;
     }

@@ -10,7 +10,10 @@ import styles from './CharPhoto.module.css';
 const CharPhoto = ({
    charPhoto,
    charName,
-   charId
+   charId,
+    charFavorite,
+    setCharFavorite
+
 }) => {
     const dispatch = useDispatch();
 
@@ -21,10 +24,13 @@ const CharPhoto = ({
                 img:charPhoto
             }
         }));
+        setCharFavorite(true);
+
     }
 
     const remove = () => {
-        dispatch(removeCharFromFavorite());
+        dispatch(removeCharFromFavorite(charId));
+        setCharFavorite(false);
     }
 
     return (
@@ -32,8 +38,12 @@ const CharPhoto = ({
             <div className={styles.container}>
                 <img className={styles.photo} src={charPhoto} alt={charName}/>
             </div>
-            <button onClick={add}>Add</button>
-            <button onClick={remove}>Remove</button>
+
+            {charFavorite
+                ? <button onClick={remove}>Remove</button>
+                : <button onClick={add}>Add</button>
+            }
+
         </>
 
     );
@@ -42,7 +52,9 @@ const CharPhoto = ({
 CharInfo.propTypes = {
     charName:PropTypes.string,
     charPhoto:PropTypes.string,
-    charId:PropTypes.string
+    charId:PropTypes.string,
+    charFavorite:PropTypes.bool,
+    setCharFavorite:PropTypes.func
 }
 
 export default CharPhoto;
