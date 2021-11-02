@@ -17,20 +17,19 @@ const CharPhoto = ({
 }) => {
     const dispatch = useDispatch();
 
-    const add = () => {
-        dispatch(addCharToFavorite({
-            [charId]: {
-                name:charName,
-                img:charPhoto
-            }
-        }));
-        setCharFavorite(true);
-
-    }
-
-    const remove = () => {
-        dispatch(removeCharFromFavorite(charId));
-        setCharFavorite(false);
+    const handleDispatchFavorites = () => {
+        if(charFavorite){
+            dispatch(removeCharFromFavorite(charId));
+            setCharFavorite(false);
+        } else {
+            dispatch(addCharToFavorite({
+                [charId]: {
+                    name:charName,
+                    img:charPhoto
+                }
+            }));
+            setCharFavorite(true);
+        }
     }
 
     return (
@@ -38,11 +37,7 @@ const CharPhoto = ({
             <div className={styles.container}>
                 <img className={styles.photo} src={charPhoto} alt={charName}/>
             </div>
-
-            {charFavorite
-                ? <button onClick={remove}>Remove</button>
-                : <button onClick={add}>Add</button>
-            }
+            <button onClick={handleDispatchFavorites}>olala</button>
 
         </>
 
