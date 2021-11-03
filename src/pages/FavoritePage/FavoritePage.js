@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 
 import PeopleList from "../../components/PeopleList/PeopleList";
 import styles from './FavoritePage.module.css';
+import NotFound from "../NotFound/NotFound";
 
 
 const FavoritePage = () => {
@@ -11,8 +12,6 @@ const FavoritePage = () => {
 
     const storeData = useSelector(state => state.favReducer);
     console.log(storeData);
-
-    const dispatch = useDispatch();
 
     useEffect(()=>{
         const arr = Object.entries(storeData);
@@ -30,7 +29,11 @@ const FavoritePage = () => {
 
     return (
         <div>
-            <PeopleList character={character}/>
+            <h1 className='header__text'>Favorite Characters</h1>
+            {character.length
+                ? <PeopleList character={character}/>
+                : <h2 className={styles.comment}>No data, please add character.</h2>
+            }
 
         </div>
     );

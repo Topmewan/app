@@ -65,4 +65,5 @@ img {
     text-shadow: 0 0 2px var(--color-black);
     color: var(--theme-default-header);
     transition: color var(--transition);
+    text-align: center;
 }

@@ -1,0 +1,6 @@
+.comment{
+    text-align: center;
+    margin-top: 25vh;
+    color: var(--color-white);
+    filter: drop-shadow(0px 0px 3px var(--color-black));
+}

@@ -2,7 +2,7 @@ import HomePage from "../../pages/HomePage/HomePage";
 import PeoplePage from "../../pages/PeoplePage/PeoplePage";
 import NotFound from "../../pages/NotFound/NotFound";
 import CharPage from "../../pages/CharPage/CharPage";
-import FavoritePage from "../../pages/FaforitePage/FavoritePage";
+import FavoritePage from "../../pages/FavoritePage/FavoritePage";
 
 const routesConfig  = [
     {
