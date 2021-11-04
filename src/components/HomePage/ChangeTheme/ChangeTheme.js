@@ -35,13 +35,13 @@ const ChangeTheme = () => {
 
     return (
         <div className={styles.container}>
-            {elements.map((element,index)=> (
+            {elements.map(({theme,img,text,classes},index)=> (
                 <ChangeThemeUi
                 key={index}
-                theme={element.theme}
-                text={element.text}
-                img={element.img}
-                classes={element.classes}
+                theme={theme}
+                text={text}
+                img={img}
+                classes={classes}
                 />
             ))}
 

@@ -4,8 +4,8 @@
     left: 0;
     width: 250px;
     height: 450px;
-    margin-left: var(--spacing-medium);
-    border-radius: var();
+    /*margin-right: var(--spacing-large);*/
+    border-radius: var(--border-radius);
     transition: var(--transition);
     cursor: pointer;
 }
@@ -26,7 +26,7 @@
     height: 100%;
     object-fit: cover;
     object-position: center center;
-    border-radius: var();
+    border-radius: var(--border-radius);
 
 }
 

@@ -1,4 +1,15 @@
 .container {
+    /* Variables */
+
+    --border-radius:10px;
+
+    /* Styles */
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 40px;
 
 }
 
