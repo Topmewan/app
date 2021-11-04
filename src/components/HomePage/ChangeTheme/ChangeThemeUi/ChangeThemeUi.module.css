@@ -8,6 +8,18 @@
     border-radius: var(--border-radius);
     transition: var(--transition);
     cursor: pointer;
+
+}
+
+.item:hover {
+    transform: scale(1.05);
+}
+
+@media only screen and (max-width: 768px){
+    .item{
+        margin-bottom: 40px;
+
+    }
 }
 
 .item__header{
@@ -27,6 +39,5 @@
     object-fit: cover;
     object-position: center center;
     border-radius: var(--border-radius);
-
 }
 

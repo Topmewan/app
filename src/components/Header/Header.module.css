@@ -42,3 +42,13 @@
     text-shadow: none;
 }
 
+@media only screen and (max-width: 600px){
+    .logo{
+        margin: 0;
+    }
+
+    .list__container{
+        justify-content: center;
+    }
+}
+
