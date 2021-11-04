@@ -1,18 +1,50 @@
 import {useTheme,THEME_LIGHT,THEME_NEUTRAL,THEME_DARK} from "../../../context/ThemeProvider";
+import light from './img/light.jpg';
+import dark from './img/dark.jpg';
+import neutral from './img/neutral.jpg';
 
 
 import styles from './ChangeTheme.module.css';
+import ChangeThemeUi from "./ChangeThemeUi/ChangeThemeUi";
+
+
 
 const ChangeTheme = () => {
 
-    const isTheme = useTheme();
+    const elements = [
+        {
+            theme: THEME_LIGHT,
+            text:'Light Mode',
+            img:light,
+            classes: styles.item__light
+        },
+        {
+            theme: THEME_DARK,
+            text:'Dark Mode',
+            img:dark,
+            classes: styles.item__dark
+        },
+        {
+            theme: THEME_NEUTRAL,
+            text:'Neutral Mode',
+            img:neutral,
+            classes: styles.item__neutral
+        },
+    ]
+
 
     return (
-        <div>
-            {isTheme.theme}
-            <button onClick={()=> isTheme.change(THEME_LIGHT)}>Light</button>
-            <button onClick={()=> isTheme.change(THEME_DARK)}>Dark</button>
-            <button onClick={()=> isTheme.change(THEME_NEUTRAL)}>Neutral</button>
+        <div className={styles.container}>
+            {elements.map((element,index)=> (
+                <ChangeThemeUi
+                key={index}
+                theme={element.theme}
+                text={element.text}
+                img={element.img}
+                classes={element.classes}
+                />
+            ))}
+
         </div>
     );
 };

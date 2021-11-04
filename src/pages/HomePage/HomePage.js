@@ -8,7 +8,7 @@ const HomePage = () => {
 
     return (
         <>
-            <h1 className='header__text'>Test homepage</h1>
+            <h1 className='header__text'>Welcome</h1>
             <ChangeTheme/>
 
         </>

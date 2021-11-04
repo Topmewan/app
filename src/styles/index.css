@@ -46,9 +46,9 @@
 
     --theme-default-header: var(--theme-neutral-header);
 
-    --theme-light-bgimg:linear-gradient(to bottom, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);;
-    --theme-dark-bgimg: blue;
-    --theme-neutral-bgimg: linear-gradient(to right, #232526, #414345);
+    --theme-light-bgimg:linear-gradient(to right bottom, #092d65, #003a6e, #004675, #00527b, #055e7f);
+    --theme-dark-bgimg: linear-gradient(to right bottom, #081a36, #231736, #361130, #440c24, #4a0e15);
+    --theme-neutral-bgimg: linear-gradient(to right bottom, #034e8f, #005f94, #006d88, #00776f, #037e52);
 
     --theme-default-bgimg: var(--theme-neutral-bgimg);
 
