@@ -27,7 +27,7 @@ const SearchChars = ({charInSearch}) => {
 
                 </ul>
              )
-            : <h2>No Results</h2>}
+            : <h2 className='header__text'>No Results</h2>}
 
 
         </>

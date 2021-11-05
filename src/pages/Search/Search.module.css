@@ -4,6 +4,7 @@
     align-items: center;
 }
 
-input{
-    width: 200px;
+.input__search{
+    margin-top: 30px;
+    margin-bottom: 30px;
 }

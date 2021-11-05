@@ -5,11 +5,12 @@ import {getApi} from "../../utils/getApi";
 import {API_SEARCH} from "../../constants/api";
 import {withErrorApi} from "../../HOC/withErrorApi";
 import {getPeopleId,getPeopleImage} from "../../components/services/getPeopleData";
+import {debounce} from "lodash";
 
+import UiInput from "../../components/UiKit/UiInput/UiInput";
 import SearchChars from "../../components/Search/SearchChars";
 
 import styles from './Search.module.css';
-import {debounce} from "lodash";
 
 
 const Search = ({setErrorApi}) => {
@@ -52,8 +53,8 @@ const Search = ({setErrorApi}) => {
         []
     )
 
-    const handleChange = (e) => {
-        const value = e.target.value;
+    const handleChange = (value) => {
+        // const value = e.target.value;
         setInputValue(value);
         debounceFunc(value);
     }
@@ -61,12 +62,16 @@ const Search = ({setErrorApi}) => {
     return (
         <div className={styles.container}>
             <h1 className='header__text'>Search</h1>
-            <input
-                type="text"
+
+            <UiInput
+                type='text'
                 value={inputValue}
-                onChange={handleChange}
+                handleChange={handleChange}
                 placeholder='Enter character name'
+                classes={styles.input__search}
+
             />
+
             <SearchChars charInSearch={charInSearch}/>
 
         </div>
