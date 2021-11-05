@@ -32,7 +32,7 @@
     font-family: var(--font-family-main);
     text-decoration: none;
     font-weight: var(--font-bold);
-    text-shadow: var(--text-shadow-blue);
+    text-shadow: 0 0 1px var(--color-black);
     transition: var(--transition);
 }
 

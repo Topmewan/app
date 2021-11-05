@@ -7,11 +7,6 @@
 
 }
 
-.list__item {
-
-
-}
-
 
 .list__item a{
     display: inline-flex;
@@ -24,9 +19,6 @@
 
 }
 
-.list__item a:hover {
-    transform: scale(1.08);
-}
 
 .person__photo{
     width: 70px;

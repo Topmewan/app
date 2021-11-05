@@ -15,22 +15,12 @@
     transform: scale(1.05);
 }
 
-@media only screen and (max-width: 768px){
-    .item{
-        margin-bottom: 40px;
-
-    }
-}
-
 .item__header{
     position: absolute;
     bottom: 20px;
     width: 100%;
     font-size: var(--font-size-subheader);
     text-align: center;
-
-
-
 }
 
 .item__img{
@@ -39,5 +29,12 @@
     object-fit: cover;
     object-position: center center;
     border-radius: var(--border-radius);
+}
+
+@media only screen and (max-width: 768px){
+    .item{
+        margin-bottom: 40px;
+
+    }
 }
 
