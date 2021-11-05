@@ -3,6 +3,7 @@ import PeoplePage from "../../pages/PeoplePage/PeoplePage";
 import NotFound from "../../pages/NotFound/NotFound";
 import CharPage from "../../pages/CharPage/CharPage";
 import FavoritePage from "../../pages/FavoritePage/FavoritePage";
+import Search from "../../pages/Search/Search";
 
 const routesConfig  = [
     {
@@ -31,12 +32,18 @@ const routesConfig  = [
     },
     {
         id:5,
+        path:'/search',
+        exact: true,
+        component: Search,
+    },
+    {
+        id:6,
         path:'/not-found',
         exact: true,
         component: NotFound,
     },
     {
-        id:6,
+        id:7,
         path:'*',
         exact: false,
         component: NotFound,
