@@ -48,7 +48,7 @@ const Search = ({setErrorApi}) => {
 
 
     const debounceFunc = useCallback(
-        debounce(val => getResponse(value),300),
+        debounce(value => getResponse(value),300),
         []
     )
 
