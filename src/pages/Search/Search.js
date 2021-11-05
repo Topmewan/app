@@ -1,12 +1,16 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
+import PropTypes from "prop-types";
+
 import {getApi} from "../../utils/getApi";
 import {API_SEARCH} from "../../constants/api";
 import {withErrorApi} from "../../HOC/withErrorApi";
 import {getPeopleId,getPeopleImage} from "../../components/services/getPeopleData";
-import PropTypes from "prop-types";
+
 import SearchChars from "../../components/Search/SearchChars";
 
 import styles from './Search.module.css';
+import {debounce} from "lodash";
+
 
 const Search = ({setErrorApi}) => {
     const [charInSearch,setCharInSearch] = useState([]);
@@ -35,20 +39,23 @@ const Search = ({setErrorApi}) => {
 
         } else {
             setErrorApi(true);
-
         }
-
-
     }
 
     useEffect(()=>{
-        getResponse('');
-    },[])
+       getResponse('');
+    },[]);
+
+
+    const debounceFunc = useCallback(
+        debounce(val => getResponse(value),300),
+        []
+    )
 
     const handleChange = (e) => {
         const value = e.target.value;
         setInputValue(value);
-        getResponse(value);
+        debounceFunc(value);
     }
 
     return (
