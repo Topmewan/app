@@ -1,111 +1,97 @@
-import PropTypes from "prop-types";
-import React,{useEffect, useState,Suspense} from "react";
-import {useSelector} from "react-redux";
+import PropTypes from 'prop-types'
+import React, { useEffect, useState, Suspense } from 'react'
+import { useSelector } from 'react-redux'
 
 
-import {withErrorApi} from "../../HOC/withErrorApi";
+import { withErrorApi } from '../../HOC/withErrorApi'
 
-import CharInfo from "../../components/CharPage/CharInfo/CharInfo";
-import CharPhoto from "../../components/CharPage/CharPhoto/CharPhoto";
-import CharLinkBack from "../../components/CharPage/CharLinkBack/CharLinkBack";
-import UiLoading from "../../components/UiKit/UiLoading/UiLoading";
+import CharInfo from '../../components/CharPage/CharInfo/CharInfo'
+import CharPhoto from '../../components/CharPage/CharPhoto/CharPhoto'
+import CharLinkBack from '../../components/CharPage/CharLinkBack/CharLinkBack'
+import UiLoading from '../../components/UiKit/UiLoading/UiLoading'
 
-import {getApi} from "../../utils/getApi";
-import {API_CHAR} from "../../constants/api";
-import {getPeopleImage} from "../../components/services/getPeopleData";
+import { getApi } from '../../utils/getApi'
+import { API_CHAR } from '../../constants/api'
+import { getPeopleImage } from '../../components/services/getPeopleData'
 
-import styles from './CharPage.module.css';
+import styles from './CharPage.module.css'
 
-const CharFilms = React.lazy(() => import("../../components/CharPage/CharFilms/CharFilms"))
-const CharPage = ({match, setErrorApi}) => {
+const CharFilms = React.lazy(() => import('../../components/CharPage/CharFilms/CharFilms'))
+const CharPage = ({ match, setErrorApi }) => {
 
-    const [charInfo,setCharInfo] = useState(null);
-    const [charName,setCharName] = useState(null);
-    const[charPhoto,setCharPhoto] = useState(null);
-    const[charFilms,setCharFilms] = useState(null);
-    const[charId,setCharId] = useState(null);
-    const[charFavorite,setCharFavorite] = useState(false);
+	const [charInfo, setCharInfo] = useState(null)
+	const [charName, setCharName] = useState(null)
+	const [charPhoto, setCharPhoto] = useState(null)
+	const [charFilms, setCharFilms] = useState(null)
+	const [charId, setCharId] = useState(null)
+	const [charFavorite, setCharFavorite] = useState(false)
 
-    const storeData = useSelector(state => state.favReducer);
+	const storeData = useSelector(state => state.favReducer)
 
+	useEffect(() => {
+		(async () => {
+			const id = match.params.id
+			const res = await getApi(`${API_CHAR}/${id}/`)
 
-    useEffect(()=>{
-        (async () => {
-            const id = match.params.id;
-            const res = await getApi(`${API_CHAR}/${id}/`);
+			storeData[id] ? setCharFavorite(true) : setCharFavorite(false)
 
+			setCharId(id)
 
-            storeData[id] ? setCharFavorite(true) : setCharFavorite(false);
+			if (res) {
+				setCharInfo([
+					{ title: 'Height', data: res.height },
+					{ title: 'Mass', data: res.mass },
+					{ title: 'Hair Color', data: res.hair_color },
+					{ title: 'Skin Color', data: res.skin_color },
+					{ title: 'Eye Color', data: res.eye_color },
+					{ title: 'Birth Year', data: res.birth_year },
+					{ title: 'Gender', data: res.gender },
+				])
+				setCharName(res.name)
+				setCharPhoto(getPeopleImage(id))
 
-            setCharId(id);
+				res.films.length && setCharFilms(res.films)
 
-            if(res){
-                setCharInfo([
-                    {title:'Height',data: res.height},
-                    {title:'Mass',data: res.mass},
-                    {title:'Hair Color',data: res.hair_color},
-                    {title:'Skin Color',data: res.skin_color},
-                    {title:'Eye Color',data: res.eye_color},
-                    {title:'Birth Year',data: res.birth_year},
-                    {title:'Gender',data: res.gender},
-                ]);
-                setCharName(res.name);
-                setCharPhoto(getPeopleImage(id))
+				setErrorApi(false)
+			} else {
+				setErrorApi(true)
+			}
 
-                res.films.length &&  setCharFilms(res.films);
+		})()
 
-                setErrorApi(false);
-            } else {
-                setErrorApi(true);
-            }
+	}, [])
 
-        })();
-
-    },[]);
-
-    return (
-        <>
-
-            <CharLinkBack/>
-
-            <div className={styles.wraperr}>
-                <div className={styles.wrapper}>
-
-                    <span className={styles.person__name}>{charName}</span>
-
-                    <div className={styles.container}>
-
-                        <CharPhoto
-                            charPhoto={charPhoto}
-                            charName={charName}
-                            charId={charId}
-                            charFavorite={charFavorite}
-                            setCharFavorite={setCharFavorite}
-
-                        />
-
-                        { charInfo && <CharInfo charInfo={charInfo}/> }
-
-                        {charFilms && (
-                            <Suspense fallback={<UiLoading/>}>
-                                <CharFilms charFilms={charFilms}/>
-                            </Suspense>
-                        )}
-
-                    </div>
-
-                </div>
-            </div>
-
-        </>
-    );
-
+	return (
+		<>
+			<CharLinkBack />
+			<div className={styles.wraperr}>
+				<div className={styles.wrapper}>
+					<span className={styles.person__name}>{charName}</span>
+					<div className={styles.container}>
+						<CharPhoto
+							charPhoto={charPhoto}
+							charName={charName}
+							charId={charId}
+							charFavorite={charFavorite}
+							setCharFavorite={setCharFavorite}
+						/>
+						{charInfo && <CharInfo charInfo={charInfo} />}
+						{charFilms && (
+							<Suspense fallback={<UiLoading />}>
+								<CharFilms charFilms={charFilms} />
+							</Suspense>
+						)}
+					</div>
+				</div>
+			</div>
+		</>
+	)
 }
 
 CharPage.propTypes = {
-    setErrorApi:PropTypes.func,
-    math:PropTypes.object,
+	setErrorApi: PropTypes.func,
+	math: PropTypes.object,
 
 }
 
-export default withErrorApi(CharPage);
+export default withErrorApi(CharPage)

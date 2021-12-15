@@ -5,42 +5,42 @@ import UiButton from "../UiKit/UiButton/UiButton";
 
 const Navigation = ({prevPage,getResource,nextPage,currentPage}) => {
 
-    const handleChangeNext = () => {
-        getResource(nextPage);
-    }
+	const handleChangeNext = () => {
+		getResource(nextPage);
+	}
 
-    const handleChangePrev = () => {
-        getResource(prevPage);
-    }
-    return (
-        <div className={styles.container}>
-            <Link to={`/people/?page=${currentPage-1}`} className={styles.buttons}>
-                <UiButton
-                    text='Previous'
-                    onClick={handleChangePrev}
-                    disabled={!prevPage}
+	const handleChangePrev = () => {
+		getResource(prevPage);
+	}
+	return (
+		<div className={styles.container}>
+			<Link to={`/people/?page=${currentPage-1}`} className={styles.buttons}>
+				<UiButton
+					text="Previous"
+					onClick={handleChangePrev}
+					disabled={!prevPage}
 
-                />
-            </Link>
+				/>
+			</Link>
 
-            <Link to={`/people/?page=${currentPage+1}`} className={styles.buttons}>
-                <UiButton
-                    onClick={handleChangeNext}
-                    disabled={!nextPage}
-                    text='Next'
-                />
-            </Link>
-        </div>
-    );
+			<Link to={`/people/?page=${currentPage+1}`} className={styles.buttons}>
+				<UiButton
+					onClick={handleChangeNext}
+					disabled={!nextPage}
+					text="Next"
+				/>
+			</Link>
+		</div>
+	);
 
 
 }
 
 Navigation.propTypes = {
-    getResource: PropTypes.func,
-    prevPage: PropTypes.string,
-    nexPage: PropTypes.string,
-    currentPage: PropTypes.number,
+	getResource: PropTypes.func,
+	prevPage: PropTypes.string,
+	nexPage: PropTypes.string,
+	currentPage: PropTypes.number,
 
 }
 

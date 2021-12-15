@@ -4,20 +4,20 @@ import {useLocation} from "react-router";
 
 const NotFound = () => {
 
-    let location = useLocation();
+	let location = useLocation();
 
 
-    return(
-        <>
-            <h1 className={styles.heading}>404</h1>
-            <p className={styles.text}> Not match for <u>{location.pathname}</u></p>
+	return(
+		<>
+			<h1 className={styles.heading}>404</h1>
+			<p className={styles.text}> Not match for <u>{location.pathname}</u></p>
 
 
-        </>
+		</>
 
 
 
-    );
+	);
 
 }
 

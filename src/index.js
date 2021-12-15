@@ -12,13 +12,13 @@ import './styles/index.css';
 
 ReactDOM.render(
 
-  <React.StrictMode>
-      <Provider store={store}>
-          <ThemeProvider>
-              <App />
-          </ThemeProvider>
-      </Provider>
-  </React.StrictMode>,
-  document.getElementById('root')
+	<React.StrictMode>
+		<Provider store={store}>
+			<ThemeProvider>
+				<App />
+			</ThemeProvider>
+		</Provider>
+	</React.StrictMode>,
+	document.getElementById('root')
 );
 

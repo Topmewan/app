@@ -3,5 +3,5 @@ import favReducer from "./favReducer";
 
 
 export default combineReducers({
-    favReducer
+	favReducer
 })

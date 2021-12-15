@@ -9,25 +9,25 @@ export const THEME_NEUTRAL = 'neutral';
 const ThemeContext = createContext();
 
 const ThemeProvider = ({children, ...props}) => {
-    const [theme,setTheme] = useState(null);
+	const [theme,setTheme] = useState(null);
 
-    const change = (name) => {
-        setTheme(name);
-        changeCssVariables(name);
-    }
+	const change = (name) => {
+		setTheme(name);
+		changeCssVariables(name);
+	}
 
-    return (
-        <ThemeContext.Provider
-            value={{
-                theme,
-                change,
-            }}
-            {...props}
-            >
-            {children}
-        </ThemeContext.Provider>
+	return (
+		<ThemeContext.Provider
+			value={{
+				theme,
+				change,
+			}}
+			{...props}
+		>
+			{children}
+		</ThemeContext.Provider>
 
-    );
+	);
 }
 
 export default ThemeProvider;

@@ -4,30 +4,30 @@ import cn from 'classnames';
 import {useTheme} from "../../../../context/ThemeProvider";
 
 const ChangeThemeUi = ({
-    text,
-    img,
-    theme,
-    classes
+	text,
+	img,
+	theme,
+	classes
 }) => {
 
-    const isTheme = useTheme();
+	const isTheme = useTheme();
 
-    return (
-        <div
-            className={cn(styles.item,classes)}
-            onClick={() => isTheme.change(theme)}
-        >
-            <div className={styles.item__header}>{text}</div>
-            <img className={styles.item__img} src={img} alt={text}/>
+	return (
+		<div
+			className={cn(styles.item,classes)}
+			onClick={() => isTheme.change(theme)}
+		>
+			<div className={styles.item__header}>{text}</div>
+			<img className={styles.item__img} src={img} alt={text}/>
 
 
-        </div>
-    );
+		</div>
+	);
 };
 ChangeThemeUi.propTypes = {
-    text: PropTypes.string,
-    img: PropTypes.string,
-    theme:PropTypes.string
+	text: PropTypes.string,
+	img: PropTypes.string,
+	theme:PropTypes.string
 }
 
 

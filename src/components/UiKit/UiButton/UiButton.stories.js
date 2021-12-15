@@ -1,39 +1,39 @@
-import UiButton from "./UiButton";
+import UiButton from './UiButton'
 
 export default {
-    title:'Ui-Kit/ UiButton',
-    component: UiButton
+	title: 'Ui-Kit/ UiButton',
+	component: UiButton,
 }
 
-const Template = (args) => <UiButton {...args}/>
+const Template = (args) => <UiButton {...args} />
 
 const props = {
-    text: 'Text',
-    onClick: ()=> console.log('Work'),
-    disabled:false,
-    theme: 'light',
-    classes:''
+	text: 'Text',
+	onClick: () => console.log('Work'),
+	disabled: false,
+	theme: 'light',
+	classes: '',
 
 }
-export const Light = Template.bind({});
+export const Light = Template.bind({})
 
 Light.args = {
-    ...props,
-    theme:'light'
+	...props,
+	theme: 'light',
 }
 
-export const Dark = Template.bind({});
+export const Dark = Template.bind({})
 
 Dark.args = {
-    ...props,
-    theme:'dark'
+	...props,
+	theme: 'dark',
 }
 
-export const Disabled = Template.bind({});
+export const Disabled = Template.bind({})
 
 Disabled.args = {
-    ...props,
-    disabled: true
+	...props,
+	disabled: true,
 }
 
 
