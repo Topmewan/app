@@ -19,11 +19,6 @@ export const getApi = async (url) => {
 	}
 };
 
-// (async () => {
-//     const body = await getApi(API_ROOT + API_SECOND);
-//     console.log(body);
-// })();
-
 export const makeFilmsRequest = async (url) =>{
 	const res = await Promise.all(url.map(res => {
 		return fetch(res).then(res => res.json())

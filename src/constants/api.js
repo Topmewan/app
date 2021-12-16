@@ -4,7 +4,7 @@ export const HTTPS = 'https://';
 export const HTTP = 'http://';
 
 //api
-export const API_ROOT = 'swapi.dev/api/';
+export const API_ROOT = 'www.swapi.tech/api/';
 export const API_SECOND = 'people';
 export const API_PAGE = '/?page=';
 export const API_SEARCH_PARAM = '/?search=';
